@@ -3,7 +3,10 @@
 #include "abb.h"
 
 Arv* insereCurso(Arv* arvore){
-    abb_insere(arvore, 1);
+    int cod;
+    printf("Qual o codigo do curso? \n");
+    scanf("%d", &cod);
+    arvore = abb_insere(arvore, cod);
     return arvore;
 }
 
@@ -18,7 +21,10 @@ void openUniversity(){
         switch (ctrl)
         {
         case 1:
-            insereCurso(arvore);
+            arvore = insereCurso(arvore);
+            break;
+        case 2:
+            abb_imprime(arvore);
             break;
         case 7:
             aberto = 0;

@@ -6,7 +6,7 @@ struct lista{
 }; typedef struct lista Lista;
 
 struct curso{
-    char nome[50];
+    char nome[30];
     struct lista* alunos;
 }; typedef struct curso Curso;
 
@@ -19,3 +19,4 @@ struct curso* curso;
 typedef struct arv Arv;
 
 Arv* abb_insere(Arv* a, int v);
+void abb_imprime(Arv* a);
