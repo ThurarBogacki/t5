@@ -41,14 +41,22 @@ void printaAlunos(Arv* arvore){
     printf("\nDeseja imprimir alunos de qual cod curso? ");
     scanf("%d",&cod);
     arvore = achaCod(arvore, cod);
-    printf("-- %s --\n",arvore->curso);
-    for(Lista* l=arvore->curso->alunos;l!=NULL;l=l->prox){
-        printf("------------------\n");
-        printf("Nome: %s\n",l->nome);
-        printf("Matricula: %d\n",l->matricula);
-        printf("Ano: %d\n",l->ano);
-        printf("------------------\n");
-    }   
+    if(arvore != NULL){
+        printf("-- %s --\n",arvore->curso);
+        if(arvore->curso->alunos != NULL){
+        for(Lista* l=arvore->curso->alunos;l!=NULL;l=l->prox){
+            printf("------------------\n");
+            printf("Nome: %s\n",l->nome);
+            printf("Matricula: %d\n",l->matricula);
+            printf("Ano: %d\n",l->ano);
+            printf("------------------\n");
+        }   
+        }else{
+            printf("Nao existem alunos nesse curso\n");
+        }
+    }else{
+        printf("Esse curso nao existe");
+    }
 }
     
 void excluiAluno(Arv* arvore){
@@ -64,6 +72,7 @@ void excluiAluno(Arv* arvore){
     scanf("%d", &mat);
     excluiAlunoLista(arvore, mat);
 }
+
 Arv* excluiCurso(Arv* arvore){
     int cod;
     printf("Qual o codigo do curso que deseja remover? ");

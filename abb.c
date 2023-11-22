@@ -24,8 +24,9 @@ bool codIndisponivel(Arv* a, int cod){
 
 void abb_imprime(Arv* a){
     if (a != NULL) {
+        printf("---------\n");
         abb_imprime(a->esq);
-        printf("Cod: %d ",a->cod);
+        printf("Cod: %d |",a->cod);
         printf("Curso: %s\n",a->curso->nome);
         abb_imprime(a->dir);
     }
@@ -101,7 +102,7 @@ Lista* insereListaAluno(Arv* arvore, int codCurso, char nomeAluno[], int matricu
 
 Arv* abb_retira (Arv* r, int v){
     if (r == NULL){
-        printf("Ainda nao tem curso cadastrado\n");
+        printf("Esse curso nao existe\n");
         return NULL;
     }else if (r->cod > v)
         r->esq = abb_retira(r->esq, v);
